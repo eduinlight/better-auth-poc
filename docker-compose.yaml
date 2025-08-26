@@ -1,0 +1,84 @@
+x-service: &service
+  image: poc-js-engine
+  build:
+    context: ./docker/node
+    args:
+      - BUN_VERSION=${BUN_VERSION:-1.2.21}
+      - UID=${UID:-1000}
+      - GID=${GID:-1000}
+  user: "${UID}:${GID}"
+  depends_on:
+    postgres:
+      condition: service_healthy
+  working_dir: /home/user/app
+  volumes:
+    - .:/home/user/app
+    - ~/.bun:/home/user/.bun
+
+services:
+  client:
+    <<: *service
+    container_name: client
+    command: bun run --filter @poc/client dev
+    ports:
+      - ${CLIENT_PORT}:${CLIENT_PORT}
+    networks:
+      - postgres
+    env_file:
+      - .env
+
+  auth:
+    <<: *service
+    container_name: auth
+    command: bun run --filter @poc/auth dev
+    ports:
+      - ${AUTH_PORT}:${AUTH_PORT}
+    networks:
+      - postgres
+    env_file:
+      - .env
+
+  postgres:
+    image: postgres:17.2-alpine
+    container_name: postgres
+    healthcheck:
+      retries: 12
+      interval: 1s
+      timeout: 1s
+      test: [ "CMD-SHELL", "pg_isready -d auth -U root" ]
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: auth
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - postgres
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "root@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "root"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./docker/pgadmin/servers.json:/pgadmin4/servers.json
+    ports:
+      - 8082:80
+    networks:
+      - postgres
+
+
+
+volumes:
+  postgres:
+    name: poc-better-auth-postgres
+
+networks:
+  postgres:
+    name: poc-better-auth-postgres

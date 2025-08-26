@@ -1,0 +1,18 @@
+{
+	"name": "@poc/auth",
+	"scripts": {
+		"migration-generate": "bunx --bun @better-auth/cli generate",
+		"migration-migrate": "bunx --bun @better-auth/cli migrate",
+		"dev": "bun run --hot src/server.ts"
+	},
+	"dependencies": {
+		"better-auth": "^1.3.7",
+		"hono": "^4.9.4",
+		"pg": "^8.16.3"
+	},
+	"devDependencies": {
+		"@better-auth/cli": "^1.3.7",
+		"@types/bun": "latest",
+		"@types/pg": "^8.15.5"
+	}
+}
