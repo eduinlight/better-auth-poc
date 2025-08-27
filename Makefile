@@ -8,7 +8,7 @@ all: install
 
 reinstall: uninstall install
 
-install: compose-build bun-install compose-up
+install: compose-build bun-install compose-up auth-migration-migrate
 
 uninstall: remove-volumes
 

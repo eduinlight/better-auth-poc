@@ -1,5 +1,5 @@
 {
-	"name": "@poc/auth-client",
+	"name": "@package/auth-client",
 	"main": "./src/index.ts",
 	"type": "module",
 	"private": true,

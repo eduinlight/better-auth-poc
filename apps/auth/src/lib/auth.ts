@@ -1,12 +1,15 @@
 import { betterAuth } from "better-auth";
 import { Pool } from "pg";
-import { BETTER_AUTH_DATABASE } from "../env";
+import { AUTH_DATABASE, AUTH_SECRET, AUTH_URL, CLIENT_BASE_URL } from "../env";
 
 export const auth = betterAuth({
-	database: new Pool({
-		connectionString: BETTER_AUTH_DATABASE,
-	}),
+	baseURL: AUTH_URL,
 	basePath: "/auth",
+	trustedOrigins: [CLIENT_BASE_URL],
+	secret: AUTH_SECRET,
+	database: new Pool({
+		connectionString: AUTH_DATABASE,
+	}),
 	emailAndPassword: {
 		enabled: true,
 	},

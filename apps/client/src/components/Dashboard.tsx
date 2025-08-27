@@ -1,4 +1,12 @@
-import type React from "react";
+import {
+	Card,
+	CardAction,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from "@package/ui/components/ui/card";
 import { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -43,6 +51,19 @@ export const Dashboard: React.FC = () => {
 
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+			<Card>
+				<CardHeader>
+					<CardTitle>Card Title</CardTitle>
+					<CardDescription>Card Description</CardDescription>
+					<CardAction>Card Action</CardAction>
+				</CardHeader>
+				<CardContent>
+					<p>Card Content</p>
+				</CardContent>
+				<CardFooter>
+					<p>Card Footer</p>
+				</CardFooter>
+			</Card>
 			{/* Navigation */}
 			<nav className="bg-white/80 backdrop-blur-sm shadow-lg border-b border-white/20">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,7 +124,7 @@ export const Dashboard: React.FC = () => {
 								</button>
 
 								{isDropdownOpen && (
-									<div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50">
+									<div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-gray-100 py-2">
 										<div className="px-4 py-2 border-b border-gray-100">
 											<p className="text-sm font-medium text-gray-900">
 												{user?.name || "User"}
@@ -150,8 +171,9 @@ export const Dashboard: React.FC = () => {
 										</button>
 										<hr className="my-1" />
 										<button
+											type="button"
 											onClick={handleLogout}
-											className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 flex items-center"
+											className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 flex items-center cursor-pointer"
 										>
 											<svg
 												className="w-4 h-4 mr-2"
@@ -335,24 +357,6 @@ export const Dashboard: React.FC = () => {
 										</div>
 									</div>
 								))}
-							</div>
-						</div>
-
-						{/* Quick Actions */}
-						<div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20">
-							<h3 className="text-lg font-semibold text-gray-900 mb-4">
-								Quick Actions
-							</h3>
-							<div className="space-y-3">
-								<button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-2 px-4 rounded-xl text-sm font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-200">
-									Create New User
-								</button>
-								<button className="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-xl text-sm font-medium hover:bg-gray-200 transition-all duration-200">
-									Export Data
-								</button>
-								<button className="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-xl text-sm font-medium hover:bg-gray-200 transition-all duration-200">
-									Generate Report
-								</button>
 							</div>
 						</div>
 					</div>

@@ -1,6 +1,6 @@
 import type React from "react";
 import { useState } from "react";
-import { Navigate, useNavigate, Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 export const Login: React.FC = () => {
@@ -36,7 +36,7 @@ export const Login: React.FC = () => {
 				<h2 className="mb-6 text-center text-3xl font-bold text-gray-800">
 					Welcome Back 👋
 				</h2>
-				
+
 				{error && (
 					<div className="mb-4 rounded-lg bg-red-50 p-3 text-sm text-red-600">
 						{error}

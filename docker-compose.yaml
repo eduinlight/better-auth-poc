@@ -19,7 +19,7 @@ services:
   client:
     <<: *service
     container_name: client
-    command: bun run --filter @poc/client dev
+    command: bun run --filter @app/client dev
     ports:
       - ${CLIENT_PORT}:${CLIENT_PORT}
     networks:
@@ -30,7 +30,7 @@ services:
   auth:
     <<: *service
     container_name: auth
-    command: bun run --filter @poc/auth dev
+    command: bun run --filter @app/auth dev
     ports:
       - ${AUTH_PORT}:${AUTH_PORT}
     networks:

@@ -1,4 +1,4 @@
-import { authClient } from "@poc/auth-client";
+import { authClient } from "@package/auth-client";
 import type React from "react";
 import { createContext, useContext, useEffect, useState } from "react";
 

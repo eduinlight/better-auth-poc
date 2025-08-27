@@ -1,0 +1,9 @@
+{
+	"extends": "@configs/ts/react-library",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./*"]
+		}
+	}
+}

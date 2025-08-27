@@ -1,5 +1,5 @@
 {
-	"name": "@poc/auth",
+	"name": "@app/auth",
 	"scripts": {
 		"migration-generate": "bunx --bun @better-auth/cli generate",
 		"migration-migrate": "bunx --bun @better-auth/cli migrate",

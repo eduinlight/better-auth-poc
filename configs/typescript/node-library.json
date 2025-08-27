@@ -1,0 +1,7 @@
+{
+	"extends": "@configs/ts/base",
+	"compilerOptions": {
+		"jsx": "react-jsx",
+		"jsxImportSource": "hono/jsx"
+	}
+}

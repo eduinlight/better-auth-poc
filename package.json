@@ -1,5 +1,5 @@
 {
-	"name": "@poc/root",
+	"name": "@app/root",
 	"type": "module",
 	"private": true,
 	"devDependencies": {
@@ -11,7 +11,8 @@
 	},
 	"workspaces": [
 		"apps/*",
-		"packages/*"
+		"packages/*",
+		"configs/*"
 	],
 	"dependencies": {
 		"zod": "^4.1.3"

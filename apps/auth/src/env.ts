@@ -2,14 +2,16 @@ import z from "zod";
 
 const envSchema = z.object({
 	AUTH_PORT: z.string().transform(Number),
-	BETTER_AUTH_SECRET: z.string(),
-	BETTER_AUTH_URL: z.url(),
-	BETTER_AUTH_DATABASE: z.url(),
+	AUTH_SECRET: z.string(),
+	AUTH_URL: z.url(),
+	AUTH_DATABASE: z.url(),
+	CLIENT_BASE_URL: z.url(),
 });
 
 export const {
 	AUTH_PORT,
-	BETTER_AUTH_DATABASE,
-	BETTER_AUTH_URL,
-	BETTER_AUTH_SECRET,
+	AUTH_DATABASE,
+	AUTH_URL,
+	AUTH_SECRET,
+	CLIENT_BASE_URL,
 } = envSchema.parse(process.env);

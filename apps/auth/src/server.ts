@@ -11,16 +11,13 @@ app.use(
 	"*",
 	cors({
 		origin: ["http://localhost:3000"],
-		allowHeaders: ["*"],
-		allowMethods: ["*"],
+		allowHeaders: ["Content-Type", "Authorization"],
+		allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
 		credentials: true,
 	}),
 );
-app.on(["POST", "GET"], "/auth/**", (c) => auth.handler(c.req.raw));
 
-app.post("/test", (ctx, next) => {
-	return ctx.json({ test: true }, 200);
-});
+app.on(["POST", "GET"], "/auth/**", (c) => auth.handler(c.req.raw));
 
 export default {
 	port: AUTH_PORT,
