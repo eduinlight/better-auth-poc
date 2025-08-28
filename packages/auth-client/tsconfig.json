@@ -1,6 +1,6 @@
 {
-	"extends": "@configs/ts/base",
-	"compilerOptions": {
-		"jsx": "react-jsx"
-	}
+  "extends": "@config/ts/base",
+  "compilerOptions": {
+    "jsx": "react-jsx"
+  }
 }

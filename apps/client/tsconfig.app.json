@@ -1,5 +1,5 @@
 {
-  "extends": "@configs/ts/react-app",
+  "extends": "@config/ts/react-app",
   "include": [
     "src"
   ]

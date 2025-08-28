@@ -1,5 +1,5 @@
 {
-  "extends": "@configs/ts/base",
+  "extends": "@config/ts/base",
   "compilerOptions": {
     "jsx": "react-jsx",
     "baseUrl": ".",
