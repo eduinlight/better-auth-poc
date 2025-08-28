@@ -53,12 +53,3 @@ export const useSignupForm = () => {
 	};
 };
 
-export const useSignupRoute = () => {
-	const { form, handleSubmit } = useSignupForm();
-
-	return {
-		form,
-		handleSubmit,
-	};
-};
-

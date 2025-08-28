@@ -76,6 +76,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 			});
 			if (result.data?.user) {
 				setUser(result.data.user as User);
+			} else {
+				throw new Error("Failed to create account");
 			}
 		} catch (error) {
 			console.error("Signup failed:", error);

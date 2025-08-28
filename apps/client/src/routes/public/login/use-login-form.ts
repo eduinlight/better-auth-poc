@@ -44,11 +44,3 @@ export const useLoginForm = () => {
 	};
 };
 
-export const useLoginRoute = () => {
-	const { form, handleSubmit } = useLoginForm();
-
-	return {
-		form,
-		handleSubmit,
-	};
-};

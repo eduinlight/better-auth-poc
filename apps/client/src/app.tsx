@@ -6,7 +6,7 @@ import { MainRoutes } from "./routes";
 function App() {
 	return (
 		<>
-			<Toaster />
+			<Toaster richColors />
 			<AuthProvider>
 				<Router>
 					<MainRoutes />
