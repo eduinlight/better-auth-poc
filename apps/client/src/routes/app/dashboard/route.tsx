@@ -1,9 +1,11 @@
-import { useState } from "react";
-import { useAuth } from "../providers/AuthContext";
 import { Button } from "@package/ui/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@package/ui/components/ui/card";
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+} from "@package/ui/components/ui/card";
 import { Badge } from "@package/ui/components/ui/badge";
-import { Separator } from "@package/ui/components/ui/separator";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -13,43 +15,10 @@ import {
 	DropdownMenuTrigger,
 } from "@package/ui/components/ui/dropdown-menu";
 
+import { useDashboardRoute } from "./use-route.hook";
+
 export const Dashboard: React.FC = () => {
-	const { user, logout } = useAuth();
-
-	const handleLogout = async () => {
-		try {
-			await logout();
-		} catch (error) {
-			console.error("Logout failed:", error);
-		}
-	};
-
-	const stats = [
-		{
-			name: "Total Users",
-			value: "1,247",
-			change: "+12%",
-			changeType: "positive",
-		},
-		{
-			name: "Active Sessions",
-			value: "342",
-			change: "+8%",
-			changeType: "positive",
-		},
-		{
-			name: "Revenue",
-			value: "$54,239",
-			change: "-2%",
-			changeType: "negative",
-		},
-		{
-			name: "Conversion Rate",
-			value: "3.24%",
-			change: "+0.5%",
-			changeType: "positive",
-		},
-	];
+	const { user, handleLogout, stats, recentActivity } = useDashboardRoute();
 
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
@@ -79,14 +48,20 @@ export const Dashboard: React.FC = () => {
 						</div>
 
 						<div className="flex items-center space-x-4">
-							<Badge variant="secondary" className="hidden md:flex items-center gap-2">
+							<Badge
+								variant="secondary"
+								className="hidden md:flex items-center gap-2"
+							>
 								<div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
 								<span>Online</span>
 							</Badge>
 
 							<DropdownMenu>
 								<DropdownMenuTrigger asChild>
-									<Button variant="ghost" className="flex items-center space-x-3 p-2">
+									<Button
+										variant="ghost"
+										className="flex items-center space-x-3 p-2"
+									>
 										<div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
 											<span className="text-white font-medium text-sm">
 												{(user?.name || user?.email)?.charAt(0).toUpperCase()}
@@ -215,7 +190,9 @@ export const Dashboard: React.FC = () => {
 										</p>
 									</div>
 									<Badge
-										variant={stat.changeType === "positive" ? "default" : "destructive"}
+										variant={
+											stat.changeType === "positive" ? "default" : "destructive"
+										}
 										className="flex items-center gap-1"
 									>
 										{stat.changeType === "positive" ? (
@@ -306,28 +283,7 @@ export const Dashboard: React.FC = () => {
 								<CardTitle>Recent Activity</CardTitle>
 							</CardHeader>
 							<CardContent className="space-y-4">
-								{[
-									{
-										action: "User logged in",
-										time: "2 minutes ago",
-										type: "success",
-									},
-									{
-										action: "New user registered",
-										time: "15 minutes ago",
-										type: "info",
-									},
-									{
-										action: "Payment processed",
-										time: "1 hour ago",
-										type: "success",
-									},
-									{
-										action: "System backup completed",
-										time: "2 hours ago",
-										type: "info",
-									},
-								].map((activity, index) => (
+								{recentActivity.map((activity, index) => (
 									<div key={index} className="flex items-center space-x-3">
 										<div
 											className={`w-2 h-2 rounded-full ${
@@ -340,7 +296,9 @@ export const Dashboard: React.FC = () => {
 											<p className="text-sm font-medium text-foreground">
 												{activity.action}
 											</p>
-											<p className="text-xs text-muted-foreground">{activity.time}</p>
+											<p className="text-xs text-muted-foreground">
+												{activity.time}
+											</p>
 										</div>
 									</div>
 								))}

@@ -58,6 +58,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 			});
 			if (result.data?.user) {
 				setUser(result.data.user as User);
+			} else {
+				throw new Error("Invalid credentials");
 			}
 		} catch (error) {
 			console.error("Login failed:", error);

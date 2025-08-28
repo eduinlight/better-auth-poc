@@ -1,52 +1,31 @@
 import type React from "react";
-import { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import { useAuth } from "../providers/AuthContext";
+import { Link } from "react-router-dom";
 import { Button } from "@package/ui/components/ui/button";
 import { Input } from "@package/ui/components/ui/input";
 import { Label } from "@package/ui/components/ui/label";
-import { Card, CardContent, CardHeader, CardTitle } from "@package/ui/components/ui/card";
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+} from "@package/ui/components/ui/card";
 import { Alert, AlertDescription } from "@package/ui/components/ui/alert";
+import { useSignupRoute } from "./use-route.hook";
 
 export const Signup: React.FC = () => {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [name, setName] = useState("");
-	const [confirmPassword, setConfirmPassword] = useState("");
-	const [error, setError] = useState("");
-	const [isLoading, setIsLoading] = useState(false);
-	const { signup, isAuthenticated } = useAuth();
-	const navigate = useNavigate();
-
-	if (isAuthenticated) {
-		return <Navigate to="/" replace />;
-	}
-
-	const handleSubmit = async (e: React.FormEvent) => {
-		e.preventDefault();
-		setError("");
-
-		if (password !== confirmPassword) {
-			setError("Passwords do not match");
-			return;
-		}
-
-		if (password.length < 6) {
-			setError("Password must be at least 6 characters long");
-			return;
-		}
-
-		setIsLoading(true);
-
-		try {
-			await signup(email, password, name);
-			navigate("/");
-		} catch (err) {
-			setError("Failed to create account. Please try again.");
-		} finally {
-			setIsLoading(false);
-		}
-	};
+	const {
+		email,
+		setEmail,
+		password,
+		setPassword,
+		name,
+		setName,
+		confirmPassword,
+		setConfirmPassword,
+		error,
+		isLoading,
+		handleSubmit,
+	} = useSignupRoute();
 
 	return (
 		<div className="flex min-h-screen w-full items-center justify-center bg-gradient-to-br from-purple-500 via-pink-500 to-red-500">
@@ -56,13 +35,11 @@ export const Signup: React.FC = () => {
 						Create Account ✨
 					</CardTitle>
 				</CardHeader>
-				
+
 				<CardContent className="space-y-4">
 					{error && (
 						<Alert variant="destructive">
-							<AlertDescription>
-								{error}
-							</AlertDescription>
+							<AlertDescription>{error}</AlertDescription>
 						</Alert>
 					)}
 

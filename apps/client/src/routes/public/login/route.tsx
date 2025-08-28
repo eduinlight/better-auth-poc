@@ -1,39 +1,18 @@
 import type React from "react";
-import { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import { useAuth } from "../providers/AuthContext";
+import { Link } from "react-router-dom";
 import { Button } from "@package/ui/components/ui/button";
 import { Input } from "@package/ui/components/ui/input";
 import { Label } from "@package/ui/components/ui/label";
-import { Card, CardContent, CardHeader, CardTitle } from "@package/ui/components/ui/card";
-import { Alert, AlertDescription } from "@package/ui/components/ui/alert";
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+} from "@package/ui/components/ui/card";
+import { useLoginRoute } from "./use-route.hook";
 
 export const Login: React.FC = () => {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [error, setError] = useState("");
-	const [isLoading, setIsLoading] = useState(false);
-	const { login, isAuthenticated } = useAuth();
-	const navigate = useNavigate();
-
-	if (isAuthenticated) {
-		return <Navigate to="/" replace />;
-	}
-
-	const handleSubmit = async (e: React.FormEvent) => {
-		e.preventDefault();
-		setError("");
-		setIsLoading(true);
-
-		try {
-			await login(email, password);
-			navigate("/");
-		} catch (err) {
-			setError("Invalid email or password");
-		} finally {
-			setIsLoading(false);
-		}
-	};
+	const { form, handleSubmit } = useLoginRoute();
 
 	return (
 		<div className="flex h-screen w-full items-center justify-center bg-gradient-to-br from-purple-500 via-pink-500 to-red-500">
@@ -43,27 +22,22 @@ export const Login: React.FC = () => {
 						Welcome Back 👋
 					</CardTitle>
 				</CardHeader>
-				
-				<CardContent className="space-y-5">
-					{error && (
-						<Alert variant="destructive">
-							<AlertDescription>
-								{error}
-							</AlertDescription>
-						</Alert>
-					)}
 
+				<CardContent className="space-y-5">
 					<form onSubmit={handleSubmit} className="space-y-5">
 						<div className="space-y-2">
 							<Label htmlFor="email">Email Address</Label>
 							<Input
 								id="email"
 								type="email"
-								value={email}
-								onChange={(e) => setEmail(e.target.value)}
 								placeholder="you@example.com"
-								required
+								{...form.register("email")}
 							/>
+							{form.formState.errors.email && (
+								<p className="text-sm text-red-500">
+									{form.formState.errors.email.message}
+								</p>
+							)}
 						</div>
 
 						<div className="space-y-2">
@@ -71,20 +45,23 @@ export const Login: React.FC = () => {
 							<Input
 								id="password"
 								type="password"
-								value={password}
-								onChange={(e) => setPassword(e.target.value)}
 								placeholder="••••••••"
-								required
+								{...form.register("password")}
 							/>
+							{form.formState.errors.password && (
+								<p className="text-sm text-red-500">
+									{form.formState.errors.password.message}
+								</p>
+							)}
 						</div>
 
 						<Button
 							type="submit"
-							disabled={isLoading}
+							disabled={form.formState.isSubmitting}
 							className="w-full"
 							size="lg"
 						>
-							{isLoading ? "Signing in..." : "Sign In"}
+							{form.formState.isSubmitting ? "Signing in..." : "Sign In"}
 						</Button>
 					</form>
 
