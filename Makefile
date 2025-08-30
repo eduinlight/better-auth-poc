@@ -8,13 +8,13 @@ all: install
 
 reinstall: uninstall install
 
-install: compose-build bun-install compose-up auth-migration-migrate
+install: compose-build bun-install compose-up auth-migration-migrate welcome
 
 uninstall: remove-volumes
 
 reset: uninstall install
 
-start: compose-up
+start: compose-up welcome
 
 stop: compose-down
 
@@ -52,3 +52,23 @@ compose-restart:
 
 remove-volumes:
 	@docker compose down -v
+
+welcome:
+	@echo ""
+	@echo "Application is now running!"
+	@echo ""
+	@echo "Available Services:"
+	@echo -e "  - Client App:      \033[34mhttp://localhost:3000\033[0m"
+	@echo -e "  - Auth API:        \033[34mhttp://localhost:4000\033[0m"
+	@echo -e "  - Emails Dev:      \033[34mhttp://localhost:3005\033[0m"
+	@echo ""
+	@echo "Database Access:"
+	@echo -e "  - PgAdmin:         \033[34mhttp://localhost:8082\033[0m"
+	@echo "    Email: root@gmail.com"
+	@echo "    Password: root"
+	@echo ""
+	@echo "Quick Commands:"
+	@echo "  - make stop        - Stop all services"
+	@echo "  - make reset       - Clean reset"
+	@echo "  - make check       - Format & lint code"
+	@echo ""

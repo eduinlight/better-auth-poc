@@ -7,7 +7,8 @@ A monorepo authentication system built with Bun, featuring a client application,
 This project consists of the following services:
 
 - **Client App** (`@app/client`) - Frontend application
-- **Auth Service** (`@app/auth`) - Authentication backend service  
+- **Auth Service** (`@app/auth`) - Authentication backend service
+- **Worker Service** (`@app/worker`) - Background job worker (e.g., sending emails to clients)
 - **PostgreSQL** - Database for user data and sessions
 - **PgAdmin** - Database administration interface
 
@@ -49,6 +50,7 @@ make reset
 |---------|------|-------------|
 | Client | 3000 | Frontend application |
 | Auth API | 4000 | Authentication service |
+| Emails Dev | 3005 | Email development preview |
 | PostgreSQL | 5432 | Database |
 | PgAdmin | 8082 | Database admin interface |
 
@@ -115,6 +117,9 @@ AUTH_PORT=4000
 AUTH_SECRET=
 AUTH_URL=http://localhost:4000
 AUTH_DATABASE=postgresql://root:root@postgres:5432/auth
+
+# WORKER
+EMAILS_DEV_PORT=3005
 ```
 
 **Important**: Make sure to set a secure value for `AUTH_SECRET` in your `.env` file.

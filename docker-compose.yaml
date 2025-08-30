@@ -38,6 +38,15 @@ services:
     env_file:
       - .env
 
+  emails:
+    <<: *service
+    container_name: emails
+    command: bun run --filter @app/worker dev --port ${EMAILS_DEV_PORT}
+    ports:
+      - ${EMAILS_DEV_PORT}:${EMAILS_DEV_PORT}
+    env_file:
+      - .env
+
   postgres:
     image: postgres:17.2-alpine
     container_name: postgres
