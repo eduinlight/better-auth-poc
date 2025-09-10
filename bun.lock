@@ -91,6 +91,15 @@
         "typescript": "^5",
       },
     },
+    "core": {
+      "name": "@core",
+      "devDependencies": {
+        "@types/bun": "latest",
+      },
+      "peerDependencies": {
+        "typescript": "^5",
+      },
+    },
     "packages/auth-client": {
       "name": "@package/auth-client",
       "devDependencies": {
@@ -278,6 +287,8 @@
     "@config/ts": ["@config/ts@workspace:configs/typescript"],
 
     "@config/vite": ["@config/vite@workspace:configs/vite"],
+
+    "@core": ["@core@workspace:core"],
 
     "@date-fns/tz": ["@date-fns/tz@1.4.1", "", {}, "sha512-P5LUNhtbj6YfI3iJjw5EL9eUAG6OitD0W3fWQcpQjDRc/QIsL0tRNuO1PcDvPccWL1fSTXXdE1ds+l95DV/OFA=="],
 
