@@ -1,4 +1,5 @@
-import type { Tag } from "../entities/tag";
+import type { UseCase } from "../../../shared/types/use-case";
+import type { Tag } from "../entities/tag.entity";
 import type { TagRepository } from "../repositories/tag-repository";
 
 export type ListTagsInput = Record<string, never>;
@@ -9,7 +10,9 @@ export type ListTagsContext = {
 	tagRepository: TagRepository;
 };
 
-export class ListTagsUseCase {
+export class ListTagsUseCase
+	implements UseCase<ListTagsInput, ListTagsContext, ListTagsOutput>
+{
 	async execute(
 		_input: ListTagsInput,
 		context: ListTagsContext,

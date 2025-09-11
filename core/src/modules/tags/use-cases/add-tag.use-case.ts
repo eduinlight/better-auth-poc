@@ -1,4 +1,5 @@
-import type { Tag } from "../entities/tag";
+import type { UseCase } from "../../../shared/types/use-case";
+import type { Tag } from "../entities/tag.entity";
 import type { TagRepository } from "../repositories/tag-repository";
 
 export type AddTagInput = {
@@ -13,7 +14,9 @@ export type AddTagContext = {
 	tagRepository: TagRepository;
 };
 
-export class AddTagUseCase {
+export class AddTagUseCase
+	implements UseCase<AddTagInput, AddTagContext, AddTagOutput>
+{
 	async execute(
 		input: AddTagInput,
 		context: AddTagContext,

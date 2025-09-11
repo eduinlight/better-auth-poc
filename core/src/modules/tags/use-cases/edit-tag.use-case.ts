@@ -1,4 +1,5 @@
-import type { Tag } from "../entities/tag";
+import type { UseCase } from "../../../shared/types/use-case";
+import type { Tag } from "../entities/tag.entity";
 import { TagNotFoundError } from "../errors";
 import type { TagRepository } from "../repositories/tag-repository";
 
@@ -15,7 +16,9 @@ export type EditTagContext = {
 	tagRepository: TagRepository;
 };
 
-export class EditTagUseCase {
+export class EditTagUseCase
+	implements UseCase<EditTagInput, EditTagContext, EditTagOutput>
+{
 	async execute(
 		input: EditTagInput,
 		context: EditTagContext,

@@ -1,4 +1,4 @@
-import type { Tag } from "../entities/tag";
+import type { Tag } from "../entities/tag.entity";
 
 export type TagRepository = {
 	findAll(): Promise<Tag[]>;

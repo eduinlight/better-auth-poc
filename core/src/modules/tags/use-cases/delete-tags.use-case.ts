@@ -1,3 +1,4 @@
+import type { UseCase } from "../../../shared/types/use-case";
 import type { TagRepository } from "../repositories/tag-repository";
 
 export type DeleteTagsInput = {
@@ -12,7 +13,9 @@ export type DeleteTagsContext = {
 	tagRepository: TagRepository;
 };
 
-export class DeleteTagsUseCase {
+export class DeleteTagsUseCase
+	implements UseCase<DeleteTagsInput, DeleteTagsContext, DeleteTagsOutput>
+{
 	async execute(
 		input: DeleteTagsInput,
 		context: DeleteTagsContext,
