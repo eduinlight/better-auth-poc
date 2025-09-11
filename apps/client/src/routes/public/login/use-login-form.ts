@@ -31,7 +31,7 @@ export const useLoginForm = () => {
 		try {
 			await login(data.email, data.password);
 			navigate("/");
-		} catch (err) {
+		} catch (_err) {
 			toast.error("User or password incorrect");
 		}
 	};

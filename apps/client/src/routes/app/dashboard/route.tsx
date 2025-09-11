@@ -33,6 +33,8 @@ export const Dashboard: React.FC = () => {
 									fill="none"
 									stroke="currentColor"
 									viewBox="0 0 24 24"
+									role="img"
+									aria-label="Lightning bolt logo"
 								>
 									<path
 										strokeLinecap="round"
@@ -75,6 +77,8 @@ export const Dashboard: React.FC = () => {
 											fill="none"
 											stroke="currentColor"
 											viewBox="0 0 24 24"
+											role="img"
+											aria-label="Dropdown arrow"
 										>
 											<path
 												strokeLinecap="round"
@@ -103,6 +107,8 @@ export const Dashboard: React.FC = () => {
 											fill="none"
 											stroke="currentColor"
 											viewBox="0 0 24 24"
+											role="img"
+											aria-label="Profile icon"
 										>
 											<path
 												strokeLinecap="round"
@@ -119,6 +125,8 @@ export const Dashboard: React.FC = () => {
 											fill="none"
 											stroke="currentColor"
 											viewBox="0 0 24 24"
+											role="img"
+											aria-label="Settings icon"
 										>
 											<path
 												strokeLinecap="round"
@@ -145,6 +153,8 @@ export const Dashboard: React.FC = () => {
 											fill="none"
 											stroke="currentColor"
 											viewBox="0 0 24 24"
+											role="img"
+											aria-label="Logout icon"
 										>
 											<path
 												strokeLinecap="round"
@@ -201,6 +211,8 @@ export const Dashboard: React.FC = () => {
 												fill="none"
 												stroke="currentColor"
 												viewBox="0 0 24 24"
+												role="img"
+												aria-label="Trending up"
 											>
 												<path
 													strokeLinecap="round"
@@ -215,6 +227,8 @@ export const Dashboard: React.FC = () => {
 												fill="none"
 												stroke="currentColor"
 												viewBox="0 0 24 24"
+												role="img"
+												aria-label="Trending down"
 											>
 												<path
 													strokeLinecap="round"
@@ -254,6 +268,8 @@ export const Dashboard: React.FC = () => {
 												fill="none"
 												stroke="currentColor"
 												viewBox="0 0 24 24"
+												role="img"
+												aria-label="Chart icon"
 											>
 												<path
 													strokeLinecap="round"
@@ -283,8 +299,11 @@ export const Dashboard: React.FC = () => {
 								<CardTitle>Recent Activity</CardTitle>
 							</CardHeader>
 							<CardContent className="space-y-4">
-								{recentActivity.map((activity, index) => (
-									<div key={index} className="flex items-center space-x-3">
+								{recentActivity.map((activity, _index) => (
+									<div
+										key={`${activity.action}-${activity.time}`}
+										className="flex items-center space-x-3"
+									>
 										<div
 											className={`w-2 h-2 rounded-full ${
 												activity.type === "success"

@@ -82,6 +82,8 @@ function SidebarProvider({
 			}
 
 			// This sets the cookie to keep the sidebar state.
+			// Using document.cookie as Cookie Store API isn't universally supported
+			// eslint-disable-next-line no-undef
 			document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`;
 		},
 		[setOpenProp, open],

@@ -10,7 +10,7 @@ export const UnprotectedRoute: React.FC<UnprotectedRouteProps> = ({
 	children,
 }) => {
 	const { isAuthenticated, isLoading } = useAuth();
-	const location = useLocation();
+	const _location = useLocation();
 
 	if (isLoading) {
 		return (

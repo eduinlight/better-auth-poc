@@ -40,7 +40,7 @@ export const useSignupForm = () => {
 		try {
 			await signup(data.email, data.password, data.name);
 			navigate("/");
-		} catch (err) {
+		} catch (_err) {
 			toast.error("Failed to create account. Please try again.");
 		}
 	};

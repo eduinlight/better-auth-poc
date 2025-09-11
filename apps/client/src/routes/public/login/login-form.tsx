@@ -2,17 +2,20 @@ import { Button } from "@package/ui/components/ui/button";
 import { Input } from "@package/ui/components/ui/input";
 import { Label } from "@package/ui/components/ui/label";
 import type React from "react";
+import { useId } from "react";
 import { useLoginForm } from "./use-login-form";
 
 export const LoginForm: React.FC = () => {
 	const { form, handleSubmit } = useLoginForm();
+	const emailId = useId();
+	const passwordId = useId();
 
 	return (
 		<form onSubmit={handleSubmit} className="space-y-5">
 			<div className="space-y-2">
-				<Label htmlFor="email">Email Address</Label>
+				<Label htmlFor={emailId}>Email Address</Label>
 				<Input
-					id="email"
+					id={emailId}
 					type="email"
 					placeholder="you@example.com"
 					{...form.register("email")}
@@ -25,9 +28,9 @@ export const LoginForm: React.FC = () => {
 			</div>
 
 			<div className="space-y-2">
-				<Label htmlFor="password">Password</Label>
+				<Label htmlFor={passwordId}>Password</Label>
 				<Input
-					id="password"
+					id={passwordId}
 					type="password"
 					placeholder="••••••••"
 					{...form.register("password")}

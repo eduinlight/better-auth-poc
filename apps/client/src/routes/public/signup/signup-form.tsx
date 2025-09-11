@@ -2,17 +2,22 @@ import { Button } from "@package/ui/components/ui/button";
 import { Input } from "@package/ui/components/ui/input";
 import { Label } from "@package/ui/components/ui/label";
 import type React from "react";
+import { useId } from "react";
 import { useSignupForm } from "./use-signup-form";
 
 export const SignupForm: React.FC = () => {
 	const { form, handleSubmit } = useSignupForm();
+	const nameId = useId();
+	const emailId = useId();
+	const passwordId = useId();
+	const confirmPasswordId = useId();
 
 	return (
 		<form onSubmit={handleSubmit} className="space-y-4">
 			<div className="space-y-2">
-				<Label htmlFor="name">Full Name</Label>
+				<Label htmlFor={nameId}>Full Name</Label>
 				<Input
-					id="name"
+					id={nameId}
 					type="text"
 					placeholder="Your full name"
 					{...form.register("name")}
@@ -25,9 +30,9 @@ export const SignupForm: React.FC = () => {
 			</div>
 
 			<div className="space-y-2">
-				<Label htmlFor="email">Email Address</Label>
+				<Label htmlFor={emailId}>Email Address</Label>
 				<Input
-					id="email"
+					id={emailId}
 					type="email"
 					placeholder="you@example.com"
 					{...form.register("email")}
@@ -40,9 +45,9 @@ export const SignupForm: React.FC = () => {
 			</div>
 
 			<div className="space-y-2">
-				<Label htmlFor="password">Password</Label>
+				<Label htmlFor={passwordId}>Password</Label>
 				<Input
-					id="password"
+					id={passwordId}
 					type="password"
 					placeholder="••••••••"
 					{...form.register("password")}
@@ -55,9 +60,9 @@ export const SignupForm: React.FC = () => {
 			</div>
 
 			<div className="space-y-2">
-				<Label htmlFor="confirmPassword">Confirm Password</Label>
+				<Label htmlFor={confirmPasswordId}>Confirm Password</Label>
 				<Input
-					id="confirmPassword"
+					id={confirmPasswordId}
 					type="password"
 					placeholder="••••••••"
 					{...form.register("confirmPassword")}
