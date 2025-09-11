@@ -1,11 +1,11 @@
 {
-  "name": "@config/ts",
-  "type": "module",
-  "exports": {
-    "./base": "./base.json",
-    "./react-app": "./react-app.json",
-    "./react-library": "./react-library.json",
-    "./node-library": "./node-library.json",
-    "./vite-config": "./vite-config.json"
-  }
+	"name": "@config/ts",
+	"type": "module",
+	"exports": {
+		"./base": "./base.json",
+		"./react-app": "./react-app.json",
+		"./react-library": "./react-library.json",
+		"./node-library": "./node-library.json",
+		"./vite-config": "./vite-config.json"
+	}
 }

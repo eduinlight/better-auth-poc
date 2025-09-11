@@ -1,10 +1,10 @@
 {
-  "name": "@config/tailwindcss",
-  "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "exports": {
-    "./styles.css": "./styles.css"
-  }
+	"name": "@config/tailwindcss",
+	"type": "module",
+	"devDependencies": {
+		"@types/bun": "latest"
+	},
+	"exports": {
+		"./styles.css": "./styles.css"
+	}
 }

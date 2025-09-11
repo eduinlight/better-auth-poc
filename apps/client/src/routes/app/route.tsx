@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { Dashboard } from "./dashboard";
 import { ProtectedRoute } from "../../components/protected-route";
+import { Dashboard } from "./dashboard";
 
 export const AppRoutes = () => {
 	return (

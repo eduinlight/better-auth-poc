@@ -1,7 +1,7 @@
-import type React from "react";
 import { Button } from "@package/ui/components/ui/button";
 import { Input } from "@package/ui/components/ui/input";
 import { Label } from "@package/ui/components/ui/label";
+import type React from "react";
 import { useLoginForm } from "./use-login-form";
 
 export const LoginForm: React.FC = () => {
@@ -50,4 +50,3 @@ export const LoginForm: React.FC = () => {
 		</form>
 	);
 };
-

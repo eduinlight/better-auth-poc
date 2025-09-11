@@ -1,11 +1,11 @@
-import type React from "react";
-import { Link } from "react-router-dom";
 import {
 	Card,
 	CardContent,
 	CardHeader,
 	CardTitle,
 } from "@package/ui/components/ui/card";
+import type React from "react";
+import { Link } from "react-router-dom";
 import { SignupForm } from "./signup-form";
 
 export const Signup: React.FC = () => {

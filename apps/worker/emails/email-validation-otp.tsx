@@ -13,19 +13,14 @@ interface EmailValidationOtpProps {
 	email?: string;
 }
 
-export const EmailValidationOtp = ({
-	otp,
-	email,
-}: EmailValidationOtpProps) => (
+export const EmailValidationOtp = ({ otp, email }: EmailValidationOtpProps) => (
 	<Html>
 		<Head />
 		<Preview>Verify your email address</Preview>
 		<Body style={main}>
 			<Container style={container}>
 				<Heading style={h1}>Verify Your Email Address</Heading>
-				<Text style={{ ...text, marginBottom: "14px" }}>
-					Hi there,
-				</Text>
+				<Text style={{ ...text, marginBottom: "14px" }}>Hi there,</Text>
 				<Text style={{ ...text, marginBottom: "14px" }}>
 					Please use the following code to verify your email address {email}:
 				</Text>
@@ -48,7 +43,8 @@ export const EmailValidationOtp = ({
 						marginBottom: "38px",
 					}}
 				>
-					If you didn&apos;t request this verification, you can safely ignore this email.
+					If you didn&apos;t request this verification, you can safely ignore
+					this email.
 				</Text>
 			</Container>
 		</Body>

@@ -15,21 +15,17 @@ interface ResetPasswordProps {
 	email?: string;
 }
 
-export const ResetPassword = ({
-	resetLink,
-	email,
-}: ResetPasswordProps) => (
+export const ResetPassword = ({ resetLink, email }: ResetPasswordProps) => (
 	<Html>
 		<Head />
 		<Preview>Reset your password</Preview>
 		<Body style={main}>
 			<Container style={container}>
 				<Heading style={h1}>Reset Your Password</Heading>
+				<Text style={{ ...text, marginBottom: "14px" }}>Hi there,</Text>
 				<Text style={{ ...text, marginBottom: "14px" }}>
-					Hi there,
-				</Text>
-				<Text style={{ ...text, marginBottom: "14px" }}>
-					We received a request to reset the password for your account ({email}).
+					We received a request to reset the password for your account ({email}
+					).
 				</Text>
 				<Text style={{ ...text, marginBottom: "24px" }}>
 					Click the button below to reset your password:
@@ -70,7 +66,8 @@ export const ResetPassword = ({
 						marginBottom: "38px",
 					}}
 				>
-					If you didn&apos;t request a password reset, you can safely ignore this email. Your password will remain unchanged.
+					If you didn&apos;t request a password reset, you can safely ignore
+					this email. Your password will remain unchanged.
 				</Text>
 			</Container>
 		</Body>

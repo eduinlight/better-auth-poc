@@ -1,7 +1,7 @@
-import type React from "react";
 import { Button } from "@package/ui/components/ui/button";
 import { Input } from "@package/ui/components/ui/input";
 import { Label } from "@package/ui/components/ui/label";
+import type React from "react";
 import { useSignupForm } from "./use-signup-form";
 
 export const SignupForm: React.FC = () => {
@@ -80,4 +80,3 @@ export const SignupForm: React.FC = () => {
 		</form>
 	);
 };
-

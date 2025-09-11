@@ -1,3 +1,4 @@
+import { Badge } from "@package/ui/components/ui/badge";
 import { Button } from "@package/ui/components/ui/button";
 import {
 	Card,
@@ -5,7 +6,6 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@package/ui/components/ui/card";
-import { Badge } from "@package/ui/components/ui/badge";
 import {
 	DropdownMenu,
 	DropdownMenuContent,

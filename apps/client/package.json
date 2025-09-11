@@ -1,34 +1,34 @@
 {
-  "name": "@app/client",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@hookform/resolvers": "^5.2.1",
-    "@package/ui": "workspace:*",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "react-hook-form": "^7.62.0",
-    "react-router": "^7.8.2",
-    "react-router-dom": "^7.8.2"
-  },
-  "devDependencies": {
-    "@config/tailwindcss": "workspace:*",
-    "@config/vite": "workspace:*",
-    "@config/ts": "workspace:*",
-    "@tailwindcss/vite": "^4.1.12",
-    "@types/react": "^19.1.10",
-    "@types/react-dom": "^19.1.7",
-    "@vitejs/plugin-react-swc": "^4.0.0",
-    "globals": "^16.3.0",
-    "tailwindcss": "^4.1.12",
-    "typescript": "~5.8.3",
-    "vite": "^7.1.2",
-    "vite-tsconfig-paths": "^5.1.4"
-  }
+	"name": "@app/client",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc -b && vite build",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@hookform/resolvers": "^5.2.1",
+		"@package/ui": "workspace:*",
+		"react": "^19.1.1",
+		"react-dom": "^19.1.1",
+		"react-hook-form": "^7.62.0",
+		"react-router": "^7.8.2",
+		"react-router-dom": "^7.8.2"
+	},
+	"devDependencies": {
+		"@config/tailwindcss": "workspace:*",
+		"@config/vite": "workspace:*",
+		"@config/ts": "workspace:*",
+		"@tailwindcss/vite": "^4.1.12",
+		"@types/react": "^19.1.10",
+		"@types/react-dom": "^19.1.7",
+		"@vitejs/plugin-react-swc": "^4.0.0",
+		"globals": "^16.3.0",
+		"tailwindcss": "^4.1.12",
+		"typescript": "~5.8.3",
+		"vite": "^7.1.2",
+		"vite-tsconfig-paths": "^5.1.4"
+	}
 }

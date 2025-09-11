@@ -27,12 +27,11 @@ export const ForgotPassword = ({
 		<Body style={main}>
 			<Container style={container}>
 				<Heading style={h1}>Password Reset Request</Heading>
+				<Text style={{ ...text, marginBottom: "14px" }}>Hi there,</Text>
 				<Text style={{ ...text, marginBottom: "14px" }}>
-					Hi there,
-				</Text>
-				<Text style={{ ...text, marginBottom: "14px" }}>
-					We received a request to reset the password for your account ({email}). 
-					If this was you, please use one of the methods below to reset your password.
+					We received a request to reset the password for your account ({email}
+					). If this was you, please use one of the methods below to reset your
+					password.
 				</Text>
 				<Text style={{ ...text, marginBottom: "24px" }}>
 					Click the button below to reset your password:
@@ -77,7 +76,8 @@ export const ForgotPassword = ({
 						marginBottom: "38px",
 					}}
 				>
-					If you didn&apos;t request a password reset, please ignore this email. Your password will remain secure and unchanged.
+					If you didn&apos;t request a password reset, please ignore this email.
+					Your password will remain secure and unchanged.
 				</Text>
 			</Container>
 		</Body>

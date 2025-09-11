@@ -1,5 +1,5 @@
-import { Navigate, Route, Routes } from "react-router-dom";
 import { UnprotectedRoute } from "@app/client/src/components/unprotected-route";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { Login } from "./login";
 import { Signup } from "./signup";
 

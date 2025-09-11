@@ -1,14 +1,12 @@
 {
-  "extends": "@config/ts/base",
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "baseUrl": ".",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "paths": {
-      "@/*": [
-        "./*"
-      ]
-    }
-  }
+	"extends": "@config/ts/base",
+	"compilerOptions": {
+		"jsx": "react-jsx",
+		"baseUrl": ".",
+		"esModuleInterop": true,
+		"resolveJsonModule": true,
+		"paths": {
+			"@/*": ["./*"]
+		}
+	}
 }

@@ -1,9 +1,9 @@
-import { useForm } from "react-hook-form";
+import { useAuth } from "@app/client/src/providers/AuthContext";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { useAuth } from "@app/client/src/providers/AuthContext";
+import { z } from "zod";
 
 const signupSchema = z
 	.object({
@@ -52,4 +52,3 @@ export const useSignupForm = () => {
 		handleSubmit,
 	};
 };
-

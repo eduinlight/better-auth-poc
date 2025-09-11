@@ -1,6 +1,4 @@
 {
-  "extends": "@config/ts/vite-config",
-  "include": [
-    "vite.config.ts"
-  ]
+	"extends": "@config/ts/vite-config",
+	"include": ["vite.config.ts"]
 }
