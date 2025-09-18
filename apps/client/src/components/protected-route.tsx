@@ -1,16 +1,18 @@
 import type React from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../providers/AuthContext";
+import { useAuthenticate } from "@daveyplate/better-auth-ui";
 
 interface ProtectedRouteProps {
 	children: React.ReactNode;
 }
 
 export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-	const { isAuthenticated, isLoading } = useAuth();
-	const location = useLocation();
+  const {isPending} = useAuthenticate()
 
-	if (isLoading) {
+  console.log({isPending})
+
+	if (isPending) {
 		return (
 			<div className="flex h-screen w-full items-center justify-center bg-gradient-to-br from-purple-500 via-pink-500 to-red-500">
 				<div className="text-center">
@@ -19,10 +21,6 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
 				</div>
 			</div>
 		);
-	}
-
-	if (!isAuthenticated) {
-		return <Navigate to="/auth/login" state={{ from: location }} replace />;
 	}
 
 	return <>{children}</>;

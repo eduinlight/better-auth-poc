@@ -9,6 +9,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@daveyplate/better-auth-ui": "^3.1.10",
 		"@hookform/resolvers": "^5.2.1",
 		"@package/ui": "workspace:*",
 		"react": "^19.1.1",

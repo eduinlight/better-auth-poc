@@ -1,14 +1,13 @@
 import { useAuth } from "@app/client/src/providers/AuthContext";
+import { useAuthenticate} from "@daveyplate/better-auth-ui";
+import { useNavigate } from "react-router";
 
 export const useDashboardRoute = () => {
-	const { user, logout } = useAuth();
+	const { user } = useAuthenticate();
+  const navigate = useNavigate()
 
 	const handleLogout = async () => {
-		try {
-			await logout();
-		} catch (error) {
-			console.error("Logout failed:", error);
-		}
+      navigate("/auth/sign-out", {replace: true})
 	};
 
 	const stats = [

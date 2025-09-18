@@ -1,18 +1,16 @@
 import { Toaster } from "@package/ui/components/ui/sonner";
 import { BrowserRouter as Router } from "react-router-dom";
-import { AuthProvider } from "./providers/AuthContext";
+import { AuthProvider } from "./providers/AuthProvider";
 import { MainRoutes } from "./routes";
 
 function App() {
 	return (
-		<>
-			<Toaster richColors />
+		<Router>
 			<AuthProvider>
-				<Router>
-					<MainRoutes />
-				</Router>
+				<Toaster richColors />
+				<MainRoutes />
 			</AuthProvider>
-		</>
+		</Router>
 	);
 }
 
